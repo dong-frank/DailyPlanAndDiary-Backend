@@ -1,2 +1,2 @@
 # DailyPlanAndDiary-Backend
-DailyPlanAndDiary-Backen
+运行springboot应用```mvn spring-boot:run```
