@@ -2,6 +2,8 @@ import { Configuration, App } from '@midwayjs/core';
 import * as koa from '@midwayjs/koa';
 import * as validate from '@midwayjs/validate';
 import * as info from '@midwayjs/info';
+import * as orm from '@midwayjs/typeorm';
+import * as crossDomain from '@midwayjs/cross-domain';
 import { join } from 'path';
 // import { DefaultErrorFilter } from './filter/default.filter';
 // import { NotFoundFilter } from './filter/notfound.filter';
@@ -10,6 +12,8 @@ import { ReportMiddleware } from './middleware/report.middleware';
 @Configuration({
   imports: [
     koa,
+    orm,
+    crossDomain,
     validate,
     {
       component: info,
