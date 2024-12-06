@@ -1,12 +1,12 @@
-# my_midway_project
+# dailyplananddiary_project
 
-## QuickStart
+## 快速入门
 
-<!-- add docs here for user -->
+<!-- 在此次添加使用文档 -->
 
-see [midway docs][midway] for more detail.
+如需进一步了解，参见 [midway 文档][midway]。
 
-### Development
+### 本地开发
 
 ```bash
 $ npm i
@@ -14,16 +14,16 @@ $ npm run dev
 $ open http://localhost:7001/
 ```
 
-### Deploy
+### 部署
 
 ```bash
 $ npm start
 ```
 
-### npm scripts
+### 内置指令
 
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
+- 使用 `npm run lint` 来做代码风格检查。
+- 使用 `npm test` 来执行单元测试。
 
 
 [midway]: https://midwayjs.org
