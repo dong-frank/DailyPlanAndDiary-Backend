@@ -42,8 +42,8 @@ export class UserController {
 
   @Get('/get_name')
   async protectedRoute() {
-    const token = this.ctx.request.header.authorization.split(' ')[1];
     try {
+      const token = this.ctx.request.header.authorization.split(' ')[1];
       this.ctx.state.user = await this.jwtService.verify(
         token,
         'YEONJUNBEOMGYU1399' // 确保这里使用的是正确的密钥
