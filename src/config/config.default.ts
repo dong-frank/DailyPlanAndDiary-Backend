@@ -1,6 +1,7 @@
 import { MidwayConfig } from '@midwayjs/core';
 import { File_upload } from '../entity/file.entity';
 import { User } from '../entity/user.entity';
+import { Diary } from '../entity/diary.entity';
 
 export default {
   // use for cookie sign key, should change to your own and keep security
@@ -27,7 +28,7 @@ export default {
         database: 'postgres', // 改成你的数据库名
         synchronize: true, // 新增加表时将其设置为true，其他时候（比如前端发送请求增加数据时）设置为false
         logging: true,
-        entities: [File_upload, User], // 实体类，每增加一个表，就增加一个，别忘了加
+        entities: [File_upload, User, Diary], // 实体类，每增加一个表，就增加一个，别忘了加
       },
     }
   }
