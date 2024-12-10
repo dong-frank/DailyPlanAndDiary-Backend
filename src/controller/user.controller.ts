@@ -39,4 +39,25 @@ export class UserController {
     }
     return false;
   }
+
+  @Get('/get_name')
+  async protectedRoute() {
+    try {
+      const token = this.ctx.request.header.authorization.split(' ')[1];
+      this.ctx.state.user = await this.jwtService.verify(
+        token,
+        'YEONJUNBEOMGYU1399' // 确保这里使用的是正确的密钥
+      );
+      const username = this.ctx.state.user.username;
+      return { username };
+    } catch (error) {
+      if (error) {
+        this.ctx.status = 401;
+        this.ctx.body = { error: 'Invalid token' };
+      } else {
+        this.ctx.status = 500;
+        this.ctx.body = { error: 'Internal server error' };
+      }
+    }
+  }
 }
