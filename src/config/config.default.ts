@@ -34,5 +34,3 @@ export default {
     }
   }
 } as MidwayConfig;
-//netstat -ano | findstr :7001
-//taskkill /PID 25668 /F
