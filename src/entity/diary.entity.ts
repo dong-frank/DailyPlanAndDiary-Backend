@@ -19,7 +19,7 @@ export class Diary {
 
     @Column({
         name: 'created_at',
-        type: 'timestamp',
+        type: 'date',
     })
     createdAt: Date;
 
@@ -28,4 +28,10 @@ export class Diary {
         type: 'text',
     })
     author: string;
+
+    @Column({
+        name: 'image_id',
+        type: 'int',
+    })
+    image_id: number;
 }

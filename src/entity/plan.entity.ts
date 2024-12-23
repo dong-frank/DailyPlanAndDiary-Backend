@@ -25,7 +25,7 @@ export class Plan {
 
     @Column({
         name: 'dead_line_time',
-        type: 'timestamp',
+        type: 'date',
     })
     deadLineTime: Date;
 
