@@ -27,4 +27,14 @@ export class PlanController {
         }
         return a;
     }
+
+    @Get('/delete_plan')
+    async delete(@Query('id') id: number) {
+        return await this.planService.deletePlan(id);
+    }
+
+    @Get('/finish_plan')
+    async update(@Query('id') id: number) {
+        return await this.planService.finishPlan(id);
+    }
 }

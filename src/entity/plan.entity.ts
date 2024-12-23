@@ -34,4 +34,10 @@ export class Plan {
         type: 'text',
     })
     author: string;
+
+    @Column({
+        name: 'is_done',
+        type: 'boolean',
+    })
+    is_done: boolean;
 }

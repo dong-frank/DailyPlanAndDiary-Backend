@@ -23,4 +23,18 @@ export class PlanService {
         console.log('Found plan in service:', plan);
         return plan;
     }
+
+    async deletePlan(id: number) {
+        return this.planModel.delete({
+            id,
+        });
+    }
+
+    async finishPlan(id: number) {
+        return this.planModel.update({
+            id,
+        }, {
+            is_done: true,
+        });
+    }
 }
