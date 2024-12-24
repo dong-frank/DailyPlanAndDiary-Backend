@@ -12,14 +12,27 @@ export class DiaryService {
         return this.diaryModel.save(diary);
     }
 
-    async findDiary(author: string) {
+    async findDiary(author: string,createdAt: Date) {
         const diary = await this.diaryModel.find({
             where: {
                 author,
+                createdAt,
             },
         });
         console.log('author:', author);
+        console.log('created_at:', createdAt);
         console.log('Found diary in service:', diary);
+        return diary;
+    }
+
+    async findDiaryByName(author: string) {
+        const diary = await this.diaryModel.find({
+            where: {
+                author
+            },
+        });
+        console.log('author:', author);
+        console.log('Found diary in service by name');
         return diary;
     }
 }

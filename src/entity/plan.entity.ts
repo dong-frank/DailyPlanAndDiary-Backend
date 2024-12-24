@@ -25,7 +25,7 @@ export class Plan {
 
     @Column({
         name: 'dead_line_time',
-        type: 'timestamp',
+        type: 'date',
     })
     deadLineTime: Date;
 
@@ -34,4 +34,10 @@ export class Plan {
         type: 'text',
     })
     author: string;
+
+    @Column({
+        name: 'is_done',
+        type: 'boolean',
+    })
+    is_done: boolean;
 }

@@ -16,8 +16,18 @@ export class DiaryController {
     }
 
     @Get('/show_diary')
-    async show(@Query('author') author: string) {
-        const a = await this.diaryService.findDiary(author);
+    async show(@Query('author') author: string, @Query('createdAt') createdAt: Date) {
+        const a = await this.diaryService.findDiary(author, createdAt);
+        console.log('Found diary in controller:', a);
+        if (a === null) {
+            return false;
+        }
+        return a;
+    }
+
+    @Get('/show_diary_by_name')
+    async showByName(@Query('author') author: string) {
+        const a = await this.diaryService.findDiaryByName(author);
         console.log('Found diary in controller:', a);
         if (a === null) {
             return false;
