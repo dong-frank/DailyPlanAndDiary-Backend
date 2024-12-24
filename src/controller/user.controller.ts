@@ -60,4 +60,18 @@ export class UserController {
       }
     }
   }
+
+  @Post('/update_password')
+  async updatePassword(@Body('username') username: string, @Body('currentPassword') currentPassword: string, @Body('newPassword') newPassword: string) {
+    const user = await this.userService.findUser(username);
+    console.log(username);
+    if (user && user.password === currentPassword && user.password !== newPassword) {
+      await this.userService.updateSecret(user.id, newPassword);
+      return { success: true, message: '密码修改成功' };
+    }else if(user && user.password !== currentPassword){
+      return { success: false, message: '密码修改失败,当前密码错误' };
+    }else if(user && user.password === newPassword){
+      return { success: false, message: '密码修改失败,新密码与旧密码相同' };
+  }
+}
 }
