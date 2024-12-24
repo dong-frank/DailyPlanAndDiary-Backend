@@ -24,4 +24,14 @@ export class DiaryController {
         }
         return a;
     }
+
+    @Get('/show_diary_by_name')
+    async showByName(@Query('author') author: string) {
+        const a = await this.diaryService.findDiaryByName(author);
+        console.log('Found diary in controller:', a);
+        if (a === null) {
+            return false;
+        }
+        return a;
+    }
 }
