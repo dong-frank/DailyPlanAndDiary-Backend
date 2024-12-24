@@ -1,4 +1,4 @@
-import { Provide } from "@midwayjs/core";
+import { Provide } from '@midwayjs/core';
 import { InjectEntityModel } from '@midwayjs/typeorm';
 import { Repository } from 'typeorm';
 import { Plan } from '../entity/plan.entity';
@@ -36,5 +36,22 @@ export class PlanService {
         }, {
             is_done: true,
         });
+    }
+    async countPlansByAuthor(author: string) {
+        const sum = await this.planModel.count({
+          where: {
+            author,
+          },
+        },);
+        return sum;
+    }
+    async countFinishedPlansByAuthor(author: string) {
+        const sum = await this.planModel.count({
+          where: {
+            author,
+            is_done: true,
+          },
+        });
+        return sum;
     }
 }

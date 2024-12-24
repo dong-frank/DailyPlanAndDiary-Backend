@@ -39,7 +39,7 @@ export default {
         host: '127.0.0.1',
         port: 5432,
         username: 'postgres',
-        password: 'rds364408', // 改成你的数据库密码
+        password: 'mnbvcxz971805', // 改成你的数据库密码
         database: 'daily', // 改成你的数据库名
         synchronize: false, // 新增加表时将其设置为true，其他时候（比如前端发送请求增加数据时）设置为false
         logging: true,

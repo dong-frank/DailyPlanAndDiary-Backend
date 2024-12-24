@@ -35,4 +35,12 @@ export class DiaryService {
         console.log('Found diary in service by name');
         return diary;
     }
+    async countDiariesByAuthor(author: string) {
+        const sum = await this.diaryModel.count({
+          where: {
+            author,
+          },
+        });
+        return sum;
+    }
 }
