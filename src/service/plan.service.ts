@@ -54,4 +54,15 @@ export class PlanService {
         });
         return sum;
     }
+
+    async findDdl(author: string, deadLineTime: Date) {
+        const plan =  await this.planModel.find({
+          where: {
+            author,
+            deadLineTime,
+            is_done: false,
+          },
+        });
+        return plan;
+    }
 }

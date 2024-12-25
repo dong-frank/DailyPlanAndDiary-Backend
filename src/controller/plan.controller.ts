@@ -37,4 +37,9 @@ export class PlanController {
     async update(@Query('id') id: number) {
         return await this.planService.finishPlan(id);
     }
+
+    @Get('/find_ddl')
+    async findDdl(@Query('author') author: string, @Query('deadLineTime') deadLineTime: Date) {
+        return await this.planService.findDdl(author, deadLineTime);
+    }
 }

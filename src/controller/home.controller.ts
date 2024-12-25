@@ -4,19 +4,27 @@ import { Controller, Get, Inject, Query } from '@midwayjs/core';
 import { PlanService } from '../service/plan.service';
 @Controller('/message')
 export class HomeController {
+
   @Inject()
   diaryService: DiaryService;
+
+  @Inject()
   planService: PlanService;
+
   @Get('/countDiariesByAuthor')
   async countDiariesByAuthor(@Query('author') author: string) {
+    console.log('countDiariesByAuthor:', author);
     return await this.diaryService.countDiariesByAuthor(author);
   }
+
   @Get('/countPlansByAuthor')
   async countPlansByAuthor(@Query('author') author: string) {
+    console.log('countPlansByAuthor:', author);
     return await this.planService.countPlansByAuthor(author);
   }
   @Get('/countFinishedPlansByAuthor')
   async countFinishedPlansByAuthor(@Query('author') author: string) {
+    console.log('countFinishedPlansByAuthor:', author);
     return await this.planService.countFinishedPlansByAuthor(author);
   }
 }
