@@ -2,6 +2,8 @@
 import { DiaryService } from '../service/diary.service';
 import { Controller, Get, Inject, Query } from '@midwayjs/core';
 import { PlanService } from '../service/plan.service';
+import {UserService} from "../service/user.service";
+
 @Controller('/message')
 export class HomeController {
 
@@ -10,6 +12,9 @@ export class HomeController {
 
   @Inject()
   planService: PlanService;
+
+  @Inject()
+  userService: UserService;
 
   @Get('/countDiariesByAuthor')
   async countDiariesByAuthor(@Query('author') author: string) {
@@ -26,5 +31,10 @@ export class HomeController {
   async countFinishedPlansByAuthor(@Query('author') author: string) {
     console.log('countFinishedPlansByAuthor:', author);
     return await this.planService.countFinishedPlansByAuthor(author);
+  }
+
+  @Get('/weather')
+  async weather() {
+    return await this.userService.getWeather();
   }
 }
