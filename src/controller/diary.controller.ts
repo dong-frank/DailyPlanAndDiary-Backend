@@ -34,4 +34,9 @@ export class DiaryController {
         }
         return a;
     }
+
+    @Get('/delete')
+    async delete(@Query('id')id: number) {
+        return await this.diaryService.deleteDiary(id);
+    }
 }

@@ -43,4 +43,10 @@ export class DiaryService {
         });
         return sum;
     }
+
+    async deleteDiary(id: number) {
+        return this.diaryModel.delete({
+            id
+        });
+    }
 }
